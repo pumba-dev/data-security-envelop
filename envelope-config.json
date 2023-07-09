@@ -1,0 +1,8 @@
+{
+  "clearText": "clear-text.txt",
+  "rsaPublicKey": "public_key.pem",
+  "rsaPrivateKey": "private_key.pem",
+  "simetricAlgorithm": "RC4",
+  "envelopeKey": "encrypted_key.txt",
+  "envelopeMessage": "encrypted_file.txt"
+}

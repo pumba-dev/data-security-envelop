@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import crypto from "crypto";
+import * as fs from "fs";
+import * as path from "path";
+import * as crypto from "crypto";
 
 // Verify Directory
 const outputDir = "./rsa-keys";
@@ -8,9 +8,9 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Gen RSA Keys (2048 bits)
+// Gen RSA Keys (4096 bits)
 const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
-  modulusLength: 2048,
+  modulusLength: 4096,
 });
 
 // Create Archive

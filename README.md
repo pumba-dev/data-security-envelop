@@ -76,11 +76,11 @@ Para definir os algoritmos e chaves utilizados no envelope, atualize os dados no
 | Params              | Type   | Default        | Description                                                                      |
 | ------------------- | ------ | -------------- | -------------------------------------------------------------------------------- |
 | `clearText`         | String | clear-text     | Nome do arquivo que contem o texto em claro para envelopamento.                  |
-| `rsaPublickey`      | String | public_key     | Nome do arquivo de chave pública utilizado para criptografia da chave simétrica. |
-| `rsaPrivatekey`     | String | private_key    | Nome do arquivo de chave privada utilizado para criptografia da chave simétrica. |
+| `rsaPublicKey`      | String | public_key     | Nome do arquivo de chave pública utilizado para criptografia da chave simétrica. |
+| `rsaPrivateKey`     | String | private_key    | Nome do arquivo de chave privada utilizado para criptografia da chave simétrica. |
 | `simetricAlgorithm` | String | AES            | Algoritmo simétrico utilizado para criptografia da mensagem (AES, DES ou RC4)    |
-| `envelopeMessage`   | String | encrypted_file | Nome do arquivo que contem a mensagem criptografada para abertura no remetente   |
 | `envelopeKey`       | String | encrypted_key  | Nome do arquivo que contem a chave criptografada para abertura no remetente      |
+| `envelopeMessage`   | String | encrypted_file | Nome do arquivo que contem a mensagem criptografada para abertura no remetente   |
 
 ### Textos em Claro
 
