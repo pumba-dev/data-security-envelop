@@ -1,0 +1,12 @@
+# Arquivos e diretórios gerados pelo TypeScript
+/dist/
+/*.js
+/*.js.map
+
+# Dependências gerenciadas pelo npm
+/node_modules/
+
+# Arquivos de configuração do npm
+/package-lock.json
+
+# Outros arquivos e diretórios específicos do seu projeto
