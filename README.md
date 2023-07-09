@@ -47,7 +47,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - [`< Git >`](https://git-scm.com/)
 - [`< NodeJS 18+ >`](https://nodejs.org/)
 
-## 📥 Baixando e compilando o Projeto
+## 📥 Baixando e Compilando o Projeto
 
 Para clonar e baixar as dependências e compilar o projeto, utilize os comandos:
 

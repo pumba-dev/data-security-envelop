@@ -2,15 +2,22 @@
   "name": "data-security-envelop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc node dist/index.js"
+    "build": "npm install && npx tsc",
+    "keygen": "node dist/keyGen.js",
+    "enveloping": "node dist/enveloping.js",
+    "opening": "node dist/opening.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.4.1",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "node-forge": "^1.3.1"
   }
 }
