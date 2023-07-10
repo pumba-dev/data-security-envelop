@@ -2,13 +2,37 @@ import fs from "fs";
 import crypto from "crypto";
 import envelopeConfig from "../envelope-config.json" assert { type: "json" };
 
+/**
+ * Gerencia o envelope digital.
+ */
 class EnvelopeManager {
+  /**
+   * Caminho do arquivo de texto sem criptografia.
+   */
   private clearTextFile: string;
+  /**
+   * Caminho do arquivo de chave privada RSA.
+   */
   private privateKeyFile: string;
+  /**
+   * Caminho do arquivo de chave pública RSA.
+   */
   private publicKeyFile: string;
+  /**
+   * Caminho do arquivo de mensagem criptografada.
+   */
   private encryptedFile: string;
+  /**
+   * Caminho do arquivo de chave do envelope.
+   */
   private encryptedKey: string;
+  /**
+   * Algoritmo simétrico utilizado.
+   */
   private symmetricAlgorithm: string;
+  /**
+   * Chave simétrica utilizada.
+   */
   private symmetricKey: Buffer;
 
   constructor() {
@@ -38,6 +62,9 @@ class EnvelopeManager {
     }
   }
 
+  /**
+   * Cria um envelope digital.
+   */
   public createEnvelope(): void {
     if (!this.validateRSAKey()) return;
     this.printCreateHeader();
@@ -62,6 +89,9 @@ class EnvelopeManager {
     this.printCreateSuccess();
   }
 
+  /**
+   * Abre um envelope digital.
+   */
   public openEnvelope(): void {
     if (!this.validateRSAKey()) return;
     this.printOpenHeader();
@@ -81,6 +111,10 @@ class EnvelopeManager {
     this.printOpenSuccess();
   }
 
+  /**
+   * Valida a chave RSA.
+   * @returns Retorna true se a chave for válida, senão retorna false.
+   */
   public validateRSAKey(): boolean {
     const publicKey = fs.readFileSync(
       `./rsa-keys/${this.publicKeyFile}`,
@@ -113,11 +147,23 @@ class EnvelopeManager {
     return false;
   }
 
+  /**
+   * Gera uma chave simétrica.
+   * @param keySize Tamanho da chave em bytes.
+   * @returns A chave simétrica gerada.
+   */
   private generateSymmetricKey(keySize: number): Buffer {
     // Gera uma chave simétrica de 32 bytes (256 bits)
     return crypto.randomBytes(keySize);
   }
 
+  /**
+   * Criptografa um arquivo.
+   * @param plainFile Caminho do arquivo de texto sem criptografia.
+   * @param symmetricKey Chave simétrica utilizada para a criptografia.
+   * @param symmetricAlgorithm Algoritmo simétrico utilizado para a criptografia.
+   * @returns O arquivo criptografado em formato hexadecimal.
+   */
   private encryptFile(
     plainFile: string,
     symmetricKey: Buffer,
@@ -141,6 +187,12 @@ class EnvelopeManager {
     return encryptedData.toString("hex");
   }
 
+  /**
+   * Criptografa a chave simétrica.
+   * @param symmetricKey Chave simétrica a ser criptografada.
+   * @param publicKeyFile Caminho do arquivo de chave pública RSA.
+   * @returns A chave simétrica criptografada em base64.
+   */
   private encryptSymmetricKey(
     symmetricKey: Buffer,
     publicKeyFile: string
@@ -161,6 +213,12 @@ class EnvelopeManager {
     return encryptedKey.toString("base64");
   }
 
+  /**
+   * Decifra a chave simétrica.
+   * @param encryptedKey Chave simétrica criptografada em base64.
+   * @param privateKeyFile Caminho do arquivo de chave privada RSA.
+   * @returns A chave simétrica decifrada.
+   */
   private decryptSymmetricKey(
     encryptedKey: string,
     privateKeyFile: string
@@ -188,6 +246,13 @@ class EnvelopeManager {
     return decryptedKey;
   }
 
+  /**
+   * Decifra um arquivo.
+   * @param encryptedFile Caminho do arquivo criptografado.
+   * @param symmetricKey Chave simétrica utilizada para a decifragem.
+   * @param symmetricAlgorithm Algoritmo simétrico utilizado para a decifragem.
+   * @returns O arquivo decifrado.
+   */
   private decryptFile(
     encryptedFile: string,
     symmetricKey: Buffer,
@@ -218,6 +283,9 @@ class EnvelopeManager {
     return decryptedData;
   }
 
+  /**
+   * Imprime cabeçalho para a criação do envelope.
+   */
   private printCreateHeader() {
     console.log(
       "================================================================"
@@ -241,6 +309,9 @@ class EnvelopeManager {
     );
   }
 
+  /**
+   * Imprime mensagem de sucesso ao criar o envelope.
+   */
   private printCreateSuccess() {
     console.log(
       "================================================================"
@@ -251,6 +322,9 @@ class EnvelopeManager {
     );
   }
 
+  /**
+   * Imprime cabeçalho para a abertura do envelope.
+   */
   private printOpenHeader() {
     console.log(
       "================================================================"
@@ -274,6 +348,9 @@ class EnvelopeManager {
     );
   }
 
+  /**
+   * Imprime mensagem de sucesso ao abrir o envelope.
+   */
   private printOpenSuccess() {
     console.log(
       "================================================================"
@@ -284,6 +361,9 @@ class EnvelopeManager {
     );
   }
 
+  /**
+   * Imprime mensagem de falha ao validar a chave RSA.
+   */
   private printFailledRSAKeys() {
     console.log(
       "================================================================"
