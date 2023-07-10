@@ -71,7 +71,7 @@ Este comando irá gerar dois arquivos (public_key.pem e private_key.pem) na past
 
 ## ⚙️ Configurando a Aplicação
 
-Para definir os algoritmos e chaves utilizados no envelope, atualize os dados no arquivo de configuração [`envelope-config.json`](/envelope-config.json) no diretório raiz do projeto.
+Para definir os algoritmos e chaves utilizados no envelope, atualize os dados no arquivo de configuração [`envelope-config.json`](/envelope-config.json) no diretório raiz do projeto. Sempre que alterar dados no arquivo de configuração, execute o comando `npm run build` para compilar as alterações.
 
 | Params              | Type   | Default        | Description                                                                      |
 | ------------------- | ------ | -------------- | -------------------------------------------------------------------------------- |
