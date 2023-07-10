@@ -17,22 +17,22 @@ Os envelopes digitais são uma técnica de segurança amplamente utilizada para 
 
 ### 📩 Envelopamento - Remetente
 
-- Converta o arquivo ou a mensagem em claro em uma representação binária.
-- Gere uma chave simétrica temporária/aleatória para o algoritmo simétrico escolhido.
-- Utilize o algoritmo simétrico para criptografar o conteúdo utilizando a chave simétrica gerada.
-- Cifre a chave simétrica temporária utilizando a chave pública do destinatário (parte que irá abrir o envelope).
+- A mensagem em claro é convertida em uma representação binária.
+- Uma chave simétrica temporária e aleatória é gerada para o algoritmo simétrico.
+- O conteúdo é criptografado com o algoritmo simétrico utilizando a chave gerada.
+- A chave simétrica temporária é cifrada utilizando a chave pública do destinatário.
 
 ### 📃 Abertura - Destinarário
 
-- Utiliza sua chave privada para descriptografar a chave simétrica.
-- Utilize a chave simétrica para descriptografar o conteúdo do envelope e obter o conteúdo original.
+- A chave simétrica é descriptografada utilizando a chave privada.
+- A mensagem do envelope é decifrada utilizando a chave simétrica.
 
 ## 📖 Referências
 
-- [Criptografia Moderna (Slides)](/criptografia-moderna.pdf)
-- [Key Encapsulation Mechanism](https://en.wikipedia.org/wiki/Key_encapsulation_mechanism)
-- [Public Key Cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography)
 - [Node Crypto Library](https://nodejs.org/api/crypto.html)
+- [Public Key Cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography)
+- [Key Encapsulation Mechanism](https://en.wikipedia.org/wiki/Key_encapsulation_mechanism)
+- [Criptografia Moderna (Slides)](/criptografia-moderna.pdf)
 
 ## 🪚 Feito Com:
 
@@ -49,7 +49,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 📥 Baixando e Compilando o Projeto
 
-Para clonar e baixar as dependências e compilar o projeto, utilize os comandos:
+Para clonar, baixar as dependências e compilar o projeto, utilize os comandos:
 
 ```
 git clone https://github.com/pumba-dev/data-security-envelop.git
@@ -82,7 +82,7 @@ Para definir os algoritmos e chaves utilizados no envelope, atualize os dados no
 | `envelopeKey`       | String | encrypted_key  | Nome do arquivo que contem a chave criptografada para abertura no remetente      |
 | `envelopeMessage`   | String | encrypted_file | Nome do arquivo que contem a mensagem criptografada para abertura no remetente   |
 
-### Textos em Claro
+### Texto em Claro
 
 - Para adicionar um novo texto em claro para o envelopamento, basta criar ou alterar um arquivo .txt localizado na pasta [/clear-texts](./clear-texts/) na raiz do projeto. Por padrão, o algoritmo está configurado para ler o arquivo de nome `clear-text`.
 
