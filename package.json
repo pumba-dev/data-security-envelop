@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install && npx tsc",
     "keygen": "node dist/src/keyGen.js",
-    "enveloping": "node --no-warnings --openssl-legacy-provider dist/src/enveloping.js",
-    "opening": "node --no-warnings --openssl-legacy-provider dist/src/opening.js"
+    "create": "node --no-warnings --openssl-legacy-provider dist/src/enveloping.js",
+    "open": "node --no-warnings --openssl-legacy-provider dist/src/opening.js"
   },
   "keywords": [],
   "author": "",

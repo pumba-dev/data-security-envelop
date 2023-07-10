@@ -99,13 +99,13 @@ Para definir os algoritmos e chaves utilizados no envelope, atualize os dados no
 Para gerar um envelope, utilize o comando:
 
 ```
-npm run enveloping
+npm run create
 ```
 
 Para abrir o envelope, utilize o comando:
 
 ```
-npm run opening
+npm run open
 ```
 
 ## 📫 Contribuindo com o Projeto
